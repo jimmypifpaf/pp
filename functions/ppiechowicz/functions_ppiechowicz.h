@@ -3,7 +3,7 @@
  ** Autor pliku : Piotr Piechowicz
  **
  **/
-
+ 
 // zabezpieczenie przed wielokrotnym wczytaniem pliku
 #ifndef functions_ppiechowicz_h
 #define functions_ppiechowicz_h
