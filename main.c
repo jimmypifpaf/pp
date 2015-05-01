@@ -7,7 +7,7 @@ int exit_program = 0;
 
 int main(void) {
 
-	show_msg_welcome();
+    show_msg_welcome();
     login();
 
     while(!exit_program)
