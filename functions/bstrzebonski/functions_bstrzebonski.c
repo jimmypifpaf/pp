@@ -12,28 +12,6 @@
 #include "../jpieniazek/functions_jpieniazek.h"
 #include "../kzemczak/functions_kzemczak.h"
 
-/**
- ** Krótki opis/nazwa funkcji. Opis danych wejsciowych i zwracanych
- **/
-
-/**
- ** Definicje funkcji
- ** Autor : Barłomiej Strzeboński
- **
- **/
-
-#include <conio.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-
-//#include "functions_ppiechowicz.h"
-//#include "../bstrzebonski/functions_bstrzebonski.h"
-//#include "../jpieniazek/functions_jpieniazek.h"
-//#include "../kzemczak/functions_kzemczak.h"
-
-
-
 
 // dodac mozliwosc zmiany hasla
 // ograniczenie mozliwosci wpisania wiecej znakow niz jest przewidziane
@@ -41,7 +19,7 @@
 
 void login()
 {
-	char username, password, pass, usr, ch;
+	char username[25], password[15], pass, usr, ch;
 	int i;
 
 	FILE *passcode;
