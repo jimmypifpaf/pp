@@ -8,46 +8,36 @@
 #ifndef functions_ppiechowicz_h
 #define functions_ppiechowicz_h
 
+// polozenie plikow bazy danych
+#define DB_PATH "data/"
+
 extern int exit_program;
 
 /**
- ** Wyswietlenie ekranu powitalnego
+ ** wyswietlanie menu :: menu glowne
  **/
 
-void show_msg_welcome(void);
+void ShowMenu_main(int);
+
 
 /**
- ** Wyswietlenie ekranu pozegnalnego
+ ** wyswietlanie menu :: menu lotów
  **/
 
-void show_msg_exit(void);
+void ShowMenu_flights(int);
+
 
 /**
- ** Logowanie do systemu
+ ** wyswietlanie menu ::  menu lista lotów
  **/
 
-void login(void);
+void ShowMenu_flights_list(int);
+
 
 /**
- ** wyswietlanie menu
+ ** wyswietlanie menu :: menu klientów
  **/
 
-void show_menu(char *menu_name);
-
-/**
- ** rysuj menu :: menu glowne
- **/
-
-void drow_menu_main(int);
-
-/**
- ** rysuj menu :: przykladowe menu 1
- **/
-
-void drow_menu_example1(int);
-
-/**
- ** kolejne funkcje ...
- **/
+void ShowMenu_clients(int);
 
 #endif
