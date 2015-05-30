@@ -38,13 +38,13 @@ void show_menu(char *menu_name);
  ** rysuj menu :: menu glowne
  **/
 
-void drow_menu_main(void);
+void drow_menu_main(int);
 
 /**
  ** rysuj menu :: przykladowe menu 1
  **/
 
-void drow_menu_example1(void);
+void drow_menu_example1(int);
 
 /**
  ** kolejne funkcje ...
