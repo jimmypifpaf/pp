@@ -14,10 +14,15 @@ extern int exit_program;
  ** Krótki opis/nazwa funkcji. Opis danych wejsciowych i zwracanych
  **/
 
-void function_krzysiek(void);
+void loadDataFromFile(void);
+void printFlight(int);
+void printAllFlights(void);
+void printFlightsWithId(void);
+void printFlightsWithDateToday(void);
+void printFlightsWithDate(void);
+void printFlightsWithCity(void);
 
-/**
- ** kolejne funkcje ...
- **/
+
+
 
 #endif
