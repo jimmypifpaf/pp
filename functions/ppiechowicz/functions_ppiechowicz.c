@@ -44,11 +44,11 @@ void show_menu(char *menu_name) {
 
     if( strcmp(menu_name, "main") == 0 )
            {
-                drow_menu_main();
+                drow_menu_main(1);
            }
     else if( strcmp(menu_name, "example") == 0 )
            {
-                drow_menu_example1();
+                drow_menu_example1(1);
            }
     else
            {
@@ -61,19 +61,23 @@ void show_menu(char *menu_name) {
  ** rysuj menu :: menu glowne
  **/
 
-void drow_menu_main(void) {
+void drow_menu_main(int show_headline) {
 
     int selected_option = 0; // wybrana opcja
 
-    printf("\n---------------------------------------------\n");
-    printf("**************** MENU GŁÓWNE ***************");
-    printf("\n---------------------------------------------\n\n");
+    if(show_headline)
+      {
+            printf("\n---------------------------------------------\n");
+            printf("**************** MENU GŁÓWNE ***************");
+            printf("\n---------------------------------------------\n\n");
 
-    printf("1. Przegladaj przyloty.\n"
-           "2. Zamknij program.\n");
+            printf("1. Przegladaj przyloty.\n"
+                   "2. Zamknij program.\n");
+      }
 
     printf("Akcja: ");
     fflush(stdout);
+    fflush(stdin);
 
     scanf("%d", &selected_option);
     printf("wybrano: %d", selected_option);
@@ -87,7 +91,8 @@ void drow_menu_main(void) {
               case 2 : exit_program = 1;
               break;
 
-              default: drow_menu_main();
+              default: printf("\nNieznana akcja!\n");
+                       drow_menu_main(0);
               break;
           }
 }
@@ -96,16 +101,19 @@ void drow_menu_main(void) {
  ** rysuj menu :: przykladowe menu 1
  **/
 
-void drow_menu_example1(void) {
+void drow_menu_example1(int show_headline) {
 
     int selected_option = 0; // wybrana opcja
 
-    printf("\n---------------------------------------------\n");
-    printf("*************** MENU PRZYKŁADOWE **************");
-    printf("\n---------------------------------------------\n\n");
+    if(show_headline)
+      {
+            printf("\n---------------------------------------------\n");
+            printf("*************** MENU PRZYKŁADOWE **************");
+            printf("\n---------------------------------------------\n\n");
 
-    printf("1. Przegladaj przyloty.\n"
-           "2. Powrót do menu głównego.\n");
+            printf("1. Przegladaj przyloty.\n"
+                   "2. Powrót do menu głównego.\n");
+      }
 
     printf("Akcja: ");
     fflush(stdout);
@@ -122,7 +130,8 @@ void drow_menu_example1(void) {
               case 2 : return;
               break;
 
-              default: drow_menu_example1();
+              default: printf("\nNieznana akcja!\n");
+                       drow_menu_example1(0);
               break;
           }
 }
