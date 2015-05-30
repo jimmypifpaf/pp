@@ -11,13 +11,21 @@
 extern int exit_program;
 
 /**
- ** Krótki opis/nazwa funkcji. Opis danych wejsciowych i zwracanych
+ ** Logowanie do systemu
  **/
 
-void function_bartek(void);
+void login(void);
 
 /**
- ** kolejne funkcje ...
+ ** Wyswietlenie ekranu powitalnego
  **/
+
+void show_msg_welcome(void);
+
+/**
+ ** Wyswietlenie ekranu pozegnalnego
+ **/
+
+void show_msg_exit(void);
 
 #endif
