@@ -12,64 +12,69 @@
 #include "../jpieniazek/functions_jpieniazek.h"
 #include "../kzemczak/functions_kzemczak.h"
 
-
-// dodac mozliwosc zmiany hasla
-// ograniczenie mozliwosci wpisania wiecej znakow niz jest przewidziane
-
+/**
+ ** Logowanie do systemu
+ **/
 
 void login()
 {
-	char username[25], password[15], pass, usr, ch;
-	int i;
+    char username[15], password[25], pass[25], usr[15];
+    int bingo = 0;
 
-	FILE *passcode;
-	if ((passcode = fopen("passcode.txt","r")) == NULL)
-	{
-		printf ("plik porównawczy nie znaleziony");
-		exit(1);
-	}
-	else
-	{
-			while (fscanf (passcode, "%s", usr) != EOF)
+    FILE *passcode;
+    if ((passcode = fopen( DB_PATH "passcode.txt","r")) == NULL)
+    {
+        printf ("plik porównawczy nie znaleziony");
+        fflush(stdout);
+        exit_program = 1;
+    }
+    else
+    {
+            printf("login :    \n");
+            fflush(stdout);
 
-			printf("login :    \n");
-			scanf ("%s", username);
-			printf ("hasło :    \n");
-			scanf("%s", password);
+            scanf ("%14s", username);
+            fflush(stdin);
 
-			//prototyp "zagwiazdkowania" hasla
-			 /*while (ch != '\n')
-			{
-				password[i] = ch;
-				i++;
-				printf("*");
-				if (i >= 25)
-					{
-						break;
-					}
-			}
-			password[i]="\0"; */
+            printf ("hasło :    \n");
+            fflush(stdout);
 
-			if (username==usr)
-			{
-				if(password==pass)
-				{
-				printf ("Witamy\n");
-				//przejście do jakiegoś menu wyboru
-				}
-			}
-			else
-			{
-				printf ("Podany login lub hasło jest błędny, spróbuj ponownie\n");
-				login();
-			}
+            scanf ("%24s", password);
+            fflush(stdin);
 
-
-	}
+            while (fscanf(passcode, "%14s %24s", usr, pass) != EOF)
+            {
+                if(strcmp(usr, username) == 0 && strcmp(pass, password) == 0)
+                {
+                    bingo = 1;
+                    break;
+                }
+            }
+            if (bingo != 1)
+            {
+               printf("niepoprawny login lub haslo\n");
+               fflush(stdout);
+               login();
+            }
+    }
+    fclose(passcode);
 }
 
+/**
+ ** Wyswietlenie ekranu powitalnego
+ **/
 
+void show_msg_welcome(void) {
+    printf("Witamy w systemie Airline! \n\nAby kontynuować prosimy podać hasło dostępu:\n");
+}
 
+/**
+ ** Wyswietlenie ekranu pozegnalnego
+ **/
+
+void show_msg_exit(void) {
+    printf("\nBye, bye! :)");
+}
 
 /**
  ** kolejne funkcje ...
