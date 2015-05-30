@@ -3,7 +3,7 @@
  ** Autor pliku : Piotr Piechowicz
  **
  **/
- 
+
 // zabezpieczenie przed wielokrotnym wczytaniem pliku
 #ifndef functions_ppiechowicz_h
 #define functions_ppiechowicz_h
@@ -27,12 +27,6 @@ void show_msg_exit(void);
  **/
 
 void login(void);
-
-/**
- ** Oczekiwanie na wybranie pozycji menu
- **/
-
-int select_menu_option(int *possibility_vals, int possibility_vals_size);
 
 /**
  ** wyswietlanie menu
